@@ -1,7 +1,10 @@
 name: python-udemy
 
 on:
-  push: 
+  push:
+    paths-ignore:
+      - doc/**
+      - README.md
     branches:
       - main
       - dev-test
@@ -13,6 +16,7 @@ jobs:
   say-hello:
     runs-on: ubuntu-20.04
     steps:
-      - run: echo "hello python"
+      - run: DATE=$(date) >> $GITHUB ENV
+      - run: echo "$DATE"
 
   
